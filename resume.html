@@ -16,30 +16,30 @@
 
   <style>
     /* ==========================================
-       1. EDITORIAL LIGHT & WARM DARK DESIGN SYSTEM
+       1. EDITORIAL PURE MONOCHROME DESIGN SYSTEM
        ========================================== */
     :root {
-      /* Midnight Navy & Champagne Gold (Default Dark) */
-      --bg-primary: #0a0e17;      /* Rich deep midnight navy */
-      --bg-secondary: #121826;    /* Dark navy card background */
-      --text-primary: #f8fafc;    /* Ivory white text */
-      --text-secondary: #cbd5e1;  /* Slate 300 secondary text */
-      --text-muted: #64748b;     /* Slate 500 muted text */
-      --accent-color: #f59e0b;    /* Warm Amber Gold accent */
-      --border-color: #1e293b;    /* Slate 800 border */
-      --shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+      /* Charcoal & Silver/Off-White (Default Dark) */
+      --bg-primary: #0c0c0e;      /* Deep rich charcoal background */
+      --bg-secondary: #16161a;    /* Slightly lighter obsidian card background */
+      --text-primary: #f4f4f5;    /* Soft off-white text */
+      --text-secondary: #d4d4d8;  /* Muted silver-gray secondary text */
+      --text-muted: #71717a;     /* Slate-gray muted text */
+      --accent-color: #f4f4f5;    /* Clean off-white/silver accent */
+      --border-color: #27272a;    /* Zinc 800 border */
+      --shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
     }
 
     [data-theme="light"] {
-      /* Ivory & Navy Light Mode */
-      --bg-primary: #fcfaf6;      /* Ivory light background */
-      --bg-secondary: #ffffff;    /* White card background */
-      --text-primary: #0f172a;    /* Navy text */
-      --text-secondary: #334155;  /* Slate 600 secondary text */
-      --text-muted: #64748b;     /* Slate 400 muted text */
-      --accent-color: #d97706;    /* Gold/Bronze accent */
-      --border-color: #e2e8f0;    /* Slate 200 border */
-      --shadow: 0 4px 20px rgba(15, 23, 42, 0.05);
+      /* Studio White & Dark Charcoal Light Mode */
+      --bg-primary: #fafafa;      /* Clean minimalist studio white */
+      --bg-secondary: #ffffff;    /* Pure white card background */
+      --text-primary: #18181b;    /* Rich dark charcoal text */
+      --text-secondary: #3f3f46;  /* Slate zinc-700 secondary text */
+      --text-muted: #71717a;     /* Zinc-500 muted text */
+      --accent-color: #18181b;    /* Deep charcoal accent for highlights */
+      --border-color: #e4e4e7;    /* Zinc 200 border */
+      --shadow: 0 4px 20px rgba(24, 24, 27, 0.04);
     }
 
     /* ==========================================
@@ -124,7 +124,7 @@
     .btn-primary:hover {
       background-color: var(--accent-color);
       border-color: var(--accent-color);
-      color: #ffffff;
+      color: var(--bg-primary);
     }
 
     /* ==========================================
