@@ -19,25 +19,27 @@
        1. EDITORIAL LIGHT & WARM DARK DESIGN SYSTEM
        ========================================== */
     :root {
-      --bg-primary: #fcfbf9; /* Soft off-white */
-      --bg-secondary: #ffffff;
-      --text-primary: #1c1917; /* Deep stone charcoal */
-      --text-secondary: #44403c;
-      --text-muted: #78716c;
-      --accent-color: #7c2d12; /* Rich Rust */
-      --border-color: #e7e5e4;
-      --shadow: 0 4px 20px rgba(28, 25, 23, 0.03);
+      /* Slate & Indigo Dark Mode (Default) */
+      --bg-primary: #030712;      /* Slate 950 */
+      --bg-secondary: #0b0f19;    /* Slate 900 */
+      --text-primary: #f3f4f6;    /* Light gray text */
+      --text-secondary: #cbd5e1;  /* Slate 300 secondary text */
+      --text-muted: #6b7280;     /* Slate 500 muted text */
+      --accent-color: #818cf8;    /* Indigo 400 */
+      --border-color: #1f2937;    /* Slate 800 */
+      --shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
     }
 
-    [data-theme="dark"] {
-      --bg-primary: #0c0a09; /* Warm dark stone */
-      --bg-secondary: #141210;
-      --text-primary: #f5f5f4;
-      --text-secondary: #d6d3d1;
-      --text-muted: #878584;
-      --accent-color: #ea580c; /* Bright Warm Rust */
-      --border-color: #292524;
-      --shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    [data-theme="light"] {
+      /* Slate & Indigo Light Mode */
+      --bg-primary: #f8fafc;      /* Slate 50 */
+      --bg-secondary: #ffffff;    /* White card background */
+      --text-primary: #0f172a;    /* Slate 900 text */
+      --text-secondary: #475569;  /* Slate 600 secondary text */
+      --text-muted: #94a3b8;     /* Slate 400 muted text */
+      --accent-color: #4f46e5;    /* Indigo 600 */
+      --border-color: #e2e8f0;    /* Slate 200 */
+      --shadow: 0 4px 20px rgba(15, 23, 42, 0.05);
     }
 
     /* ==========================================
@@ -253,7 +255,23 @@
       position: relative;
       padding-left: 16px;
       color: var(--text-secondary);
-      font-size: 14px;
+      font-size: 14.5px;
+      max-height: 200px;
+      overflow: hidden;
+      transition: color 0.2s ease, opacity 0.2s ease, max-height 0.3s ease, margin 0.3s ease, padding 0.3s ease;
+    }
+
+    body[data-view="skim"] .bullet-list li.details-only {
+      max-height: 0;
+      opacity: 0;
+      margin: 0 !important;
+      padding-top: 0 !important;
+      padding-bottom: 0 !important;
+      pointer-events: none;
+    }
+
+    body[data-view="skim"] .bullet-list li.details-only::before {
+      display: none;
     }
 
     .bullet-list li::before {
@@ -328,16 +346,22 @@
     }
   </style>
 </head>
-<body>
+<body data-theme="dark" data-view="deep">
 
   <div class="container">
     
     <!-- Controls -->
     <div class="controls">
-      <button class="btn theme-toggle" id="themeToggle" aria-label="Toggle dark/light theme">
-        <i class="fa-solid fa-moon"></i>
-        <span>Dark Mode</span>
-      </button>
+      <div>
+        <button class="btn theme-toggle" id="themeToggle" aria-label="Toggle dark/light theme" style="margin-right: 8px;">
+          <i class="fa-solid fa-sun"></i>
+          <span>Light Mode</span>
+        </button>
+        <button class="btn" id="viewToggle" aria-label="Toggle Skim/Deep Dive view">
+          <i class="fa-solid fa-compress"></i>
+          <span>Skim View</span>
+        </button>
+      </div>
       <button class="btn btn-primary" onclick="window.print()">
         <i class="fa-solid fa-print"></i>
         <span>Print or Save PDF</span>
@@ -385,10 +409,10 @@
           <ul class="bullet-list">
             <li>Partner with executives across 3 business units to execute analytics strategies, enhancing strategic decision-making and operational efficiency.</li>
             <li>Hire, develop, and mentor a high-performing team of senior analysts and data scientists, optimizing workflows to achieve a 3x turnaround time improvement.</li>
-            <li>Champion the adoption of AI-driven workflows (including Claude Code), compressing month-long analytical projects into days.</li>
+            <li class="details-only">Champion the adoption of AI-driven workflows (including Claude Code), compressing month-long analytical projects into days.</li>
             <li>Deploy predictive models and ML-based promotion forecasting to isolate business drivers, allowing business units to project future promotional impacts.</li>
             <li>Collaborate with data engineering to lead the migration of a legacy data warehouse to Amazon Redshift, unlocking faster query speeds and self-service BI.</li>
-            <li>Streamline analytics operations and automate manual tasks, freeing business users to focus on high-value revenue opportunities.</li>
+            <li class="details-only">Streamline analytics operations and automate manual tasks, freeing business users to focus on high-value revenue opportunities.</li>
           </ul>
         </div>
 
@@ -402,8 +426,8 @@
             <li>Led, trained, and mentored diverse cross-functional teams of 3 to 6 analysts, accelerating their progression into advanced statistical modeling.</li>
             <li>Consolidated 50 disparate dashboards into a unified PowerBI/SQL data mart and collaborated with IT to deploy production-grade data pipelines.</li>
             <li>Designed and implemented a student success and retention predictive model using R and Alteryx, enabling early intervention strategies.</li>
-            <li>Directed ROI analysis for direct-mail marketing campaigns and engineered an Alteryx app for automated unstructured data cleansing.</li>
-            <li>Collaborated with executive leadership to generate insights and slide decks for quarterly Board of Directors presentations.</li>
+            <li class="details-only">Directed ROI analysis for direct-mail marketing campaigns and engineered an Alteryx app for automated unstructured data cleansing.</li>
+            <li class="details-only">Collaborated with executive leadership to generate insights and slide decks for quarterly Board of Directors presentations.</li>
           </ul>
         </div>
 
@@ -416,8 +440,8 @@
           <ul class="bullet-list">
             <li>Developed XGBoost and Logistic Regression models to identify future, high-value customers and isolate key behavioral drivers for targeted marketing.</li>
             <li>Architected daily, scalable sales forecasting models using R for 10 consumer brands, significantly reducing manual labor across the marketing department.</li>
-            <li>Automated a recency, frequency, and monetary (RFM) customer scoring model for 10 brands using Python to drive personalized outreach.</li>
-            <li>Engineered a K-Nearest-Neighbor (KNN) model using R and Python to systematically identify and monitor competitor footprint.</li>
+            <li class="details-only">Automated a recency, frequency, and monetary (RFM) customer scoring model for 10 brands using Python to drive personalized outreach.</li>
+            <li class="details-only">Engineered a K-Nearest-Neighbor (KNN) model using R and Python to systematically identify and monitor competitor footprint.</li>
           </ul>
         </div>
 
@@ -428,10 +452,10 @@
             <span class="role-dates">2014 – 2017</span>
           </div>
           <ul class="bullet-list">
-            <li>Managed and prioritized 20+ concurrent enterprise client analytics requests, maintaining high satisfaction and on-time delivery.</li>
+            <li class="details-only">Managed and prioritized 20+ concurrent enterprise client analytics requests, maintaining high satisfaction and on-time delivery.</li>
             <li>Presented quarterly insights and strategic recommendations directly to C-suite and executive-level enterprise clients.</li>
             <li>Developed a standardized employee churn model predicting voluntary attrition, enabling HR to implement proactive retention strategies.</li>
-            <li>Designed dimensional BI models using PowerPivot and PowerBI, automating dashboard reporting and reducing client meeting preparation time.</li>
+            <li class="details-only">Designed dimensional BI models using PowerPivot and PowerBI, automating dashboard reporting and reducing client meeting preparation time.</li>
           </ul>
         </div>
 
@@ -477,7 +501,7 @@
     </div>
   </div>
 
-  <!-- JavaScript Theme Toggle -->
+  <!-- JavaScript Theme & View Toggle -->
   <script>
     const themeToggle = document.getElementById('themeToggle');
     const body = document.body;
@@ -485,15 +509,33 @@
     const themeText = themeToggle.querySelector('span');
 
     themeToggle.addEventListener('click', () => {
-      const currentTheme = body.getAttribute('data-theme');
+      const currentTheme = body.getAttribute('data-theme') || 'dark';
       if (currentTheme === 'dark') {
-        body.removeAttribute('data-theme');
+        body.setAttribute('data-theme', 'light');
         themeIcon.className = 'fa-solid fa-moon';
         themeText.textContent = 'Dark Mode';
       } else {
         body.setAttribute('data-theme', 'dark');
         themeIcon.className = 'fa-solid fa-sun';
         themeText.textContent = 'Light Mode';
+      }
+    });
+
+    // View Toggle (Skim vs. Deep Dive)
+    const viewToggle = document.getElementById('viewToggle');
+    const viewIcon = viewToggle.querySelector('i');
+    const viewText = viewToggle.querySelector('span');
+
+    viewToggle.addEventListener('click', () => {
+      const currentView = body.getAttribute('data-view') || 'deep';
+      if (currentView === 'deep') {
+        body.setAttribute('data-view', 'skim');
+        viewIcon.className = 'fa-solid fa-expand';
+        viewText.textContent = 'Deep Dive View';
+      } else {
+        body.setAttribute('data-view', 'deep');
+        viewIcon.className = 'fa-solid fa-compress';
+        viewText.textContent = 'Skim View';
       }
     });
   </script>
