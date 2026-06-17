@@ -19,26 +19,26 @@
        1. EDITORIAL LIGHT & WARM DARK DESIGN SYSTEM
        ========================================== */
     :root {
-      /* Slate & Indigo Dark Mode (Default) */
-      --bg-primary: #030712;      /* Slate 950 */
-      --bg-secondary: #0b0f19;    /* Slate 900 */
-      --text-primary: #f3f4f6;    /* Light gray text */
+      /* Midnight Navy & Champagne Gold (Default Dark) */
+      --bg-primary: #0a0e17;      /* Rich deep midnight navy */
+      --bg-secondary: #121826;    /* Dark navy card background */
+      --text-primary: #f8fafc;    /* Ivory white text */
       --text-secondary: #cbd5e1;  /* Slate 300 secondary text */
-      --text-muted: #6b7280;     /* Slate 500 muted text */
-      --accent-color: #818cf8;    /* Indigo 400 */
-      --border-color: #1f2937;    /* Slate 800 */
+      --text-muted: #64748b;     /* Slate 500 muted text */
+      --accent-color: #f59e0b;    /* Warm Amber Gold accent */
+      --border-color: #1e293b;    /* Slate 800 border */
       --shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
     }
 
     [data-theme="light"] {
-      /* Slate & Indigo Light Mode */
-      --bg-primary: #f8fafc;      /* Slate 50 */
+      /* Ivory & Navy Light Mode */
+      --bg-primary: #fcfaf6;      /* Ivory light background */
       --bg-secondary: #ffffff;    /* White card background */
-      --text-primary: #0f172a;    /* Slate 900 text */
-      --text-secondary: #475569;  /* Slate 600 secondary text */
-      --text-muted: #94a3b8;     /* Slate 400 muted text */
-      --accent-color: #4f46e5;    /* Indigo 600 */
-      --border-color: #e2e8f0;    /* Slate 200 */
+      --text-primary: #0f172a;    /* Navy text */
+      --text-secondary: #334155;  /* Slate 600 secondary text */
+      --text-muted: #64748b;     /* Slate 400 muted text */
+      --accent-color: #d97706;    /* Gold/Bronze accent */
+      --border-color: #e2e8f0;    /* Slate 200 border */
       --shadow: 0 4px 20px rgba(15, 23, 42, 0.05);
     }
 
@@ -205,7 +205,7 @@
       letter-spacing: 0.08em;
       margin-top: 40px;
       margin-bottom: 20px;
-      border-bottom: 1px solid var(--text-primary);
+      border-bottom: 2px solid var(--accent-color);
       padding-bottom: 4px;
     }
 
@@ -234,8 +234,8 @@
 
     .role-company {
       font-style: italic;
-      color: var(--text-secondary);
-      font-weight: 400;
+      color: var(--accent-color);
+      font-weight: 500;
     }
 
     .role-dates {
@@ -279,7 +279,7 @@
       position: absolute;
       left: 0;
       top: 0;
-      color: var(--text-muted);
+      color: var(--accent-color);
     }
 
     /* ==========================================
