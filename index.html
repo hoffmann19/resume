@@ -323,12 +323,13 @@
 
     @media print {
       @page {
-        margin: 0; /* Hides browser default header (timestamp/title) and footer (URL) */
+        margin: 1.8cm 2cm; /* Hides browser default header/footer and sets uniform page margins */
       }
       body {
         background-color: #ffffff !important;
         color: #000000 !important;
-        padding: 2cm 2.5cm !important; /* Re-establishes margin inside the page */
+        padding: 0 !important;
+        margin: 0 !important;
       }
       .container {
         max-width: 100% !important;
